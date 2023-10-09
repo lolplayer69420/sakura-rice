@@ -1,0 +1,113 @@
+(defwindow powermenu
+    :monitor 0
+    :geometry (geometry :x "10px"
+                        :y "10px"
+                        :anchor "bottom right")
+    :stacking "fg"
+    :windowtype "normal"
+    :wm-ignore true
+(power_layout))
+
+
+(defwidget power_layout []
+    (centerbox :class "powermenu_layout"
+         :orientation "vertical"
+         :spacing 20
+         :style "background-color: #11111b"
+    (dummy)
+    (misc)
+    (close)))
+
+
+(defwidget close[]
+    (box :class "close"
+         :spacing 0
+         :orientation "horizontal"
+         :halign "end"
+         :valign "start"
+    (buttons)
+    (button :onclick "eww close powermenu"
+            :class "exit"
+            :valign "center"
+            :halign "end"
+        "Cancel")))
+
+
+(defwidget misc[]
+  (box :spacing 20
+       :space-evenly true
+       :orientation "vertical"
+    (box :spacing 30
+         :space-evenly true
+         :orientation "horizontal"
+    (box :class "network"
+         :orientation "vertical"
+         :spacing 10
+         :space-evenly: true
+    (label :class "network_header"
+           :text "Network"
+           :halign "start")
+    (label :class "current_network_interface"
+           :text network_interface
+           :halign "start"))
+    (box :class "updates"
+         :spacing 10
+         :orientation "vertical"
+         :space-evenly true
+    (label :class "update_header"
+           :text "Updates"
+           :halign "start")
+    (label :class "update_counter"
+           :text updates
+           :halign "start")))))
+
+
+(defwidget buttons []
+    (box :class "buttons"
+         :spacing 10
+         :style "background-color: #1e1e2e"
+         :space-evenly true
+         :orientation "horizontal"
+         :halign "start"
+         :valign "start"
+    (button :onclick "systemctl poweroff"
+            :class "shutdown"
+        "󰐥")
+    (button :onclick "systemctl reboot"
+            :class "reboot"
+        "󰑙")
+    (button :onclick "i3-msg exit"
+            :class "logout"
+        "󰈆")))
+
+
+(defwidget dummy []
+    (box :class "dummy"
+         :orientation "horizontal"
+    (image :path "concord.png"
+           :class "profile_picture"
+           :width "10px"
+           :height "10px")
+    (box  :class "greeter"
+          :orientation "vertical"
+          :valign "center"
+          :halign "start"
+      (label :text greet
+             :class "username")
+      (label :text uptime
+             :class "uptime"
+             :halign "start"))))
+
+
+(defpoll greet :interval "10s"
+         "python greetings.py")
+
+(defpoll uptime :interval "1s"
+         "python uptime.py")
+
+(defpoll updates :interval "1s"
+         "python updates.py")
+
+(defpoll network_interface :interval "1s"
+         "python network_interfaces.py")
+

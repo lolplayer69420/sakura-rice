@@ -1,0 +1,194 @@
+/* =============================================================================
+ *
+ * Waybar configuration
+ *
+ * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ *
+ * =========================================================================== */
+
+/* -----------------------------------------------------------------------------
+ * Keyframes
+ * -------------------------------------------------------------------------- */
+
+/*
+Arc-Dark Color Scheme
+*/
+@define-color background  #11111b;
+@define-color background2 #1e1e2e;
+@define-color shutdown  #f38ba8;
+@define-color background3 #458588;
+@define-color text #cdd6f4;
+
+
+@keyframes blink-warning {
+    70% {
+        color: white;
+    }
+
+    to {
+        color: white;
+        background-color: orange;
+    }
+}
+
+@keyframes blink-critical {
+    70% {
+      color: white;
+    }
+
+    to {
+        color: white;
+        background-color: red;
+    }
+}
+
+/* -----------------------------------------------------------------------------
+ * Base styles
+ * -------------------------------------------------------------------------- */
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 1px;
+    padding: 0;
+}
+
+/* The whole bar */
+#waybar {
+    background: @background;
+    color: #bebebe;
+    font-family: Google Sans Medium, FontAwesome, Material Design Icons Desktop;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top: 2px solid @text;
+    border-left: 2px solid @text;
+    border-right: 2px solid @text;
+}
+
+/* Every modules */
+#battery,
+#clock,
+#backlight,
+#cpu,
+#custom-keyboard-layout,
+#memory,
+#mode,
+#custom-weather,
+#network,
+#pulseaudio,
+#temperature,
+#tray,
+#idle_inhibitor,
+
+#custom-PBPbattery {
+    padding:0.5rem 0.6rem;
+    margin: 1px 0px;
+}
+
+/* -----------------------------------------------------------------------------
+ * Modules styles
+ * -------------------------------------------------------------------------- */
+
+#tray, #notification{
+    background-color: @background;
+}
+
+#custom-notification {
+    border-radius: 0px;
+    color: @text;
+    padding-right: 16px;
+    margin-left: 0;
+    margin-right: -10px;
+    background-color: @background;
+    border-radius: 0px 0px 0px 0px;  
+}
+
+#tray {
+    color:  @text;
+    margin-right: 0;
+    border-radius: 0px;
+    background-color: @background;
+  
+}
+
+#network, #memory, #cpu, #pulseaudio{
+    background-color: @background;
+    color: @text;
+    font-size: 14px;
+}
+
+#network {
+  font-size: 16px;
+  padding-left: 10px;
+  padding-right: 0px;
+}
+
+#network.disconnected {
+    color: #fab387;
+}
+
+#pulseaudio {
+    font-size: 15px;
+    margin-right: -5px;
+    margin-left: 10px;
+    padding-left: 0px;
+    border-radius: 0px 8px 8px 0px;
+}
+
+#pulseaudio.muted {
+    color: @highlight;
+}
+
+#workspaces {
+    font-size:18px;
+    border-radius: 20px; 
+    background-color: @background;
+    color: @text;
+    padding: 0px;
+}
+
+#workspaces button {
+    border-radius: 0px;
+    margin: 0px;
+    font-weight: normal;
+    color: @text;
+    font-size: 15px;
+    padding-left: 4;
+    padding-right: 5;
+}
+
+#workspaces button.focused {
+    background-color: @background;
+    color: @text;
+    border-radius: 0px;
+    margin-top: 1px;
+    margin-bottom: -2px;
+    border-bottom: 4px solid #a6e3a1;
+}
+
+#workspaces button.urgent {
+    border-color: @shutdown;
+    color: @shutdown;
+}
+
+#custom-power {
+    background-color: @background2;
+    border-radius: 100px;
+    color: @shutdown;
+    padding-right: 15px;
+    padding-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 11px;
+    margin-left: 7px;
+    font-size:13px;
+}
+
+#clock {
+    color: @text;
+    font-size: 15px;
+    border-radius: 20px;
+    background-color: @background;
+}

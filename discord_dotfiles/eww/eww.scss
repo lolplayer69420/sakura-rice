@@ -1,0 +1,214 @@
+* {
+    all: unset; 
+  }
+
+.powermenu_layout {
+    border: 2px solid #cdd6f4;
+    border-radius: 8px;
+    padding-left: 35px;
+    padding-right: 25px;
+}
+
+.powermenu_index {
+  font-family: "Material Design Icons Desktop Regular", "Google Sans Regular";
+}
+
+.buttons {
+    border-radius: 60px;
+    margin-left: -20px;
+    margin-right: 130px;
+    padding-left: 10;
+    padding-right: 13;
+    padding-top: 3;
+    padding-bottom: 3;
+    margin-top: -10px;
+}
+
+.close {
+    padding-top: 20;
+    padding-bottom: 20;
+    margin-right: 25;
+}
+
+.calendar_layout {
+  padding: 11px;
+  font-size: 17px;
+  border-radius: 8px;
+  border: 2px solid #cdd6f4;
+}
+
+.calendar_box {
+  border-radius: 8px;
+  background-color: #1e1e2e;
+}
+
+.calendar {
+  padding: 4px;
+}
+
+.weather {
+  background-color: #1e1e2e;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.temperature {
+  font-family: "Iosevka Nerd Font";
+  font-size: 60px;
+  margin-left: 30px;
+  color: #a6e3a1;
+}
+
+.weather_header {
+  color: #cdd6f4;
+  font-size: 20px;
+  margin-left: 20px;
+  margin-top: -20px;
+}
+
+.weather_condition {
+  font-size: 20px;
+  color: #89b4fa;
+  margin-left: 30px;
+}
+
+.calendar.header {
+  color: #cba6f7;
+}
+
+.calendar.button {
+  color: #cba6f7;
+}
+
+.calendar.highlight {
+  margin-top: 4px;
+  margin-bottom: 16px;
+  color: #74c7ec;
+}
+
+calendar:indeterminate {
+  color: #6c7086;
+}
+
+.exit { 
+    color: #f38ba8;
+    font-size: 20px;
+    margin-right: -27px;
+}
+
+.shutdown {
+    border-radius: 7px;
+    color: #f38ba8;
+    font-size: 20px;
+}
+
+.reboot {
+    color: #f9e2af;
+    font-size: 20px;
+}
+
+.hour {
+  font-family: "Iosevka Nerd Font";
+  font-size: 70;
+  font-weight: 300;
+  margin-bottom: -20;
+  color: #f5c2e7;
+}
+
+.dummy {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.profile_picture {
+  border-radius: 100px;
+  padding-left: 20px;
+  margin-left: -70px;
+  margin-right: 100px;
+}
+
+
+.greeter {
+  margin-left: -100px;
+}
+
+
+.username {
+  font-size: 30px;
+  margin-left: -20px;
+  color: #94e2d5;
+}
+
+
+.updates {
+  border-radius: 8px;
+  background-color: #1e1e2e;
+  font-size: 17px;
+  margin-left: -20px;
+  padding-left: 15px;
+}
+
+
+.update_header {
+  color: #cdd6f4;
+  font-size: 17px;
+  margin-bottom: -5px;
+}
+
+
+.update_counter {
+  color: #a6e3a1;
+  font-size: 20px;
+  margin-top: -5px;
+}
+
+
+.uptime {
+  font-size: 17px;
+  margin-left: -20px;
+  color: #cdd6f4;
+}
+
+
+.network {
+  background-color: #1e1e2e;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 30px;
+  margin-left: -18px;
+  border-radius: 8px;
+}
+
+
+.network_header {
+  color: #cdd6f4;
+  font-size: 17px;
+}
+
+
+.current_network_interface {
+  color: #89b4fa;
+  font-size: 20px;
+}
+
+
+.minute {
+  font-family: "Iosevka Nerd Font";
+  font-size: 70;
+  font-weight: 600;
+  color: #89dceb;
+}
+
+
+.date {
+  font-weight: 500;
+}
+
+
+.logout {
+    border-radius: 7px;
+    color: #74c7ec;
+    font-size: 20px;
+    padding: 8px;
+}

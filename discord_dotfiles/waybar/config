@@ -1,0 +1,150 @@
+// Global
+
+{// "layer": "top", // Waybar at top layer
+"position": "bottom", // Waybar position (top|bottom|left|right)
+// "width": 1600, // Waybar width
+"height": 45,
+"spacing": 0, // Gaps between modules (4px)
+"margin-top": 0,
+"margin-left": 0,
+"margin-right": 0,
+
+"margin": 0,
+// Choose the order of the modules
+
+    "modules-left": [
+    ],
+
+    "modules-center": [
+        "sway/workspaces",
+    ],
+
+    "modules-right": [
+        "tray",
+        "custom/notification",
+        "network",
+        "pulseaudio",
+        "clock",
+        "custom/power",
+    ],
+
+    // Modules
+
+    "clock": {
+        "interval": 10,
+        "on-click": "eww open calendar",
+        "on-double-click": "eww close calendar"
+    },
+
+    "cpu": {
+        "interval": 5,
+        "format": "{usage}% 󰻠  | ", // Icon: microchip
+        "states": {
+            "warning": 70,
+            "critical": 90,
+        },
+        "on-click": "alacritty -e 'htop'",
+    },
+
+    "network": {
+        "interval": 5,
+        "format-wifi": "  {essid} ({signalStrength}%)", // Icon: wifi
+        "format-ethernet": "󰤨 ", // Icon: ethernet
+        "format-disconnected": "⚠  Disconnected",
+        "tooltip-format": "{ifname}: {ipaddr}",
+        "on-click": "xfce4-terminal -e 'nmtui'",
+    },
+    "network#vpn": {
+        "interface": "tun0",
+        "format": "  {essid} ({signalStrength}%)",
+        "format-disconnected": "⚠  Disconnected",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+    },
+
+    "sway/mode": {
+        "format": "{}",
+        "tooltip": false
+    },
+
+    "sway/window": {
+        "format": "{}",
+        "max-length": 120
+    },
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "disable-markup" : false,
+        "all-outputs": true,
+        "format": "  {name}  ",
+        "format-icons": {
+          
+            "1": "I",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+
+        },
+        "persistent_workspaces": {
+        	 		"1": [],
+        	 		"2": [],
+        	 		"3": [],
+        	 		"4": [],
+                    "5": [],
+                    "6": [],
+
+        	},
+
+    },
+
+    "pulseaudio": {
+        "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%  {format_source}",
+        "format-bluetooth-muted": " {icon}  {format_source}",
+        "format-muted": "婢 {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "וֹ",
+            "headset": "  ",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [""]
+        },
+        "on-click": "pavucontrol",
+        "on-scroll-up": "pamixer -ui 2",
+        "on-scroll-down": "pamixer -ud 2",
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing":10,
+     },
+
+    "custom/power": {
+        "format":"",
+        "on-click": "exec eww open powermenu",
+        "tooltip": false,
+    },
+
+
+    "custom/notification": {
+      "tooltip": false,
+      "format": "{icon}",
+      "format-icons": {
+      "notification": "<span foreground='#f38ba8'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='#f38ba8'><sup></sup></span>",
+      "dnd-none": ""
+    },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
+      "escape": true
+    },
+}

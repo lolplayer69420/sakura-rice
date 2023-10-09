@@ -1,0 +1,78 @@
+(defwindow calendar
+           :monitor 0
+           :geometry (geometry :x "20px"
+                               :y "10px"
+                               :anchor "bottom right")
+           :stacking "fg"
+           :windowtype "normal"
+           :focusable false
+           :wm-ignore true
+(calendar_layout))
+
+
+(defwidget calendar_layout []
+    (box :class "calendar_layout"
+         :orientation "vertical"
+         :spacing 0
+         :style "background-color: #11111b"
+    (actual_date)
+    (weather)
+    (calendar_box)))
+
+
+(defwidget actual_date []
+    (box :class "actual_date"
+         :orientation "vertical"
+         :spacing 0
+    (label :class "hour"
+           :text hour)
+    (label :class "minute"
+           :text minute)
+    (label :class "date"
+           :text date)))
+
+
+(defwidget weather []
+    (box :class "weather"
+         :orientation "vertical"
+         :spacing 0
+         :space-evenly true
+    (label :class "weather_header"
+           :halign "start"
+           :text "Weather")
+    (label :class "temperature"
+           :halign "start"
+           :valign "center"
+           :text temperature)
+    (label :class "weather_condition"
+           :halign "start"
+           :text weather_condition)))
+
+(defwidget calendar_box[]
+    (box :class "calendar_box"
+         :spacing 0
+         :orientation "horizontal"
+         :halign "center"
+         :valign "center"
+    (calendar :class "calendar"
+              :show-heading "true"
+              :show-day-names "true")))
+
+
+(defpoll hour :interval "1s"
+              'date +%H')
+
+(defpoll minute :interval "10s"
+                'date +%M')
+
+(defpoll date :interval "10s"
+         'date +"%A %d de %B"')
+
+(defpoll temperature :interval "10s"
+                     :run-while time-visible
+         'python get_weather.py temperature')
+
+(defpoll weather_condition :interval "10s"
+                           :run-while time-visible
+         'python get_weather.py weathercode')
+
